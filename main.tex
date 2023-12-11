@@ -1,0 +1,166 @@
+%!TEX TS-program = xelatex
+
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+\newenvironment{sloppypar*}{\sloppy\ignorespaces}{\par}
+
+% Change the page layout if you need to
+\geometry{left=1.2cm,right=1.2cm,top=1cm,bottom=1cm,columnsep=0.75cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+
+
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+
+\fi
+
+% Fork (before v1.6.5a): Change the color codes to test your personal variant on any mode
+\ifdarkmode%
+  \definecolor{PrimaryColor}{HTML}{C69749}
+  \definecolor{SecondaryColor}{HTML}{D49B54}
+  \definecolor{ThirdColor}{HTML}{1877E8}
+  \definecolor{BodyColor}{HTML}{ABABAB}
+  \definecolor{EmphasisColor}{HTML}{ABABAB}
+  \definecolor{BackgroundColor}{HTML}{191919}
+\else%
+  \definecolor{PrimaryColor}{HTML}{001F5A}
+  \definecolor{SecondaryColor}{HTML}{0039AC}
+  \definecolor{ThirdColor}{HTML}{F3890B}
+  \definecolor{BodyColor}{HTML}{666666}
+  \definecolor{EmphasisColor}{HTML}{2E2E2E}
+  \definecolor{BackgroundColor}{HTML}{E2E2E2}
+\fi%
+
+\colorlet{name}{PrimaryColor}
+\colorlet{tagline}{SecondaryColor}
+\colorlet{heading}{PrimaryColor}
+\colorlet{headingrule}{ThirdColor}
+\colorlet{subheading}{SecondaryColor}
+\colorlet{accent}{SecondaryColor}
+\colorlet{emphasis}{EmphasisColor}
+\colorlet{body}{BodyColor}
+\pagecolor{BackgroundColor}
+
+
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\small\bfseries}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+\begin{document}
+    \name{Steve Zeng}
+    \tagline{}
+
+    \personalinfo{
+        \email{szeng2525@gmail.com}\smallskip
+        \email{szeng5@uiowa.edu}\smallskip
+        \phone{+1-707-774-9127}
+        \location{Iowa, United States}\smallskip
+        \github{mathemate}
+        \homepage{szeng.pages.dev}
+    }
+    
+    \makecvheader
+    \columnratio{0.4}
+
+    \begin{paracol}{2}
+        \cvsection{About}
+        I am an aspiring student who enjoys programming, mathematics, and chemistry who hopes
+        to one day revolutionize the world with new innovations by 2050.
+        \bigskip
+        
+        \cvsection{Languages}
+        \cvlang{English}{Native}
+        \bigskip
+   
+        \cvlang{日本}{N3}
+        \bigskip
+        
+        \cvlang{中文}{HSK4}
+
+        \cvsection{Labels}
+            \begin{sloppypar*}
+            	\cvtags{  Julia, R, Matlab, Python, Javascript, C, C++}
+                
+                \cvtags{GCP, AWS, Linux}
+                
+				\cvtags{Github}
+
+				\cvtags {Tensorflow, Pytorch, LaTeX}
+
+            \end{sloppypar*}
+       
+       
+        \switchcolumn
+
+        \cvsection{Projects}
+        \cvevent{Light The World(LTW)} {}{01 2023 -- 08 2023}{}
+        \begin{itemize}
+            \item Used Tensorflow to design different models for different tasks. 
+            \item Used a sparesley entropy loss and LSTM for an emotion detector, which detects the emotion based on a string of text,
+            \item Fine-tuned using Huggingfaces Pipelines 13B parameter model to be specific characters(Character AI Engine)
+            \item LTW Character DEMO: A ReactJS website which uses DJango backend. 
+            \item API Server runs a fine-tuned AI models to act as a character and respond to the user. 
+        \end{itemize}
+        \divider
+        
+        \cvevent{MATHEMATE(Self-Projects)}{\cvreference{\faGithub}{https://github.com/mathemate}\cvreference{| \faGlobe}{https://szeng.pages.dev}}{06 2023 -- 12 2023}{}
+        \begin{itemize}
+            \item Main Website: Used front-end web technologies like React to design my personal website, which recieves 1K+ views and 100+ unique visitors.
+            \item Differential Equation Solver: Used Julia to design a differential equation solver, which can solve many various types of differential equations,
+                  and solve specific types of PDEs like heat equation and the wave equation.
+            
+
+
+        \end{itemize}
+        \divider
+
+
+        \cvsection{Education}
+            \cvevent{University of Iowa}{Student}{08 2022 -- 05 2025}{Iowa City, United States}
+            \begin{itemize}
+                \item GPA: 3.85
+                \item Courses: Introduction to Computer Engineering, 
+                               Computer Science I, 
+                               Discrete Structures, 
+                               Data Structures,
+                               Calculus I and II, 
+                               Linear Algebra, 
+                               Differential Equations, 
+                               Principles of Chemistry, 
+                               Organic Chemistry, 
+                               Physical Chemistry 
+            \end{itemize}
+
+            \cvsection{Awards}
+            \cvevent{United States of America Chemistry Olympiad National Qualifier 2023}{}{}{Iowa , United States}
+            \begin{itemize}
+                \item Qualfied for the National Exam, which is the around 1,000 students out of 16,000 students.
+                \item 99th percentile in the state of Iowa
+                \item Partook in a 4.5 hour multi-part exam, which tested labotoratory skills, and knowledge of 
+                   organic chemistry and general chemistry.
+            \end{itemize}
+            \cvevent{TSA Coding Competition 2022}{}{}{Iowa, United States}
+            \begin{itemize}
+                \item 2nd place team in the state of Iowa.
+                \item Wrote algorithms in Java to solve challenging math problems.
+            \end{itemize}
+
+    
+    \end{paracol}
+ 
+
+\end{document}
